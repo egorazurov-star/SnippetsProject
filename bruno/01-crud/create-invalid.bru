@@ -1,0 +1,21 @@
+meta {
+  name: Create invalid snippet (400)
+  type: http
+  seq: 7
+}
+
+post {
+  url: {{baseUrl}}/api/snippets/
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "title": "no code"
+  }
+}
+
+assert {
+  res.status: eq 400
+}

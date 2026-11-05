@@ -1,0 +1,9 @@
+{
+  "version": "1",
+  "name": "Snippets API",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ]
+}

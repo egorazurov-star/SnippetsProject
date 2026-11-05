@@ -1,0 +1,15 @@
+meta {
+  name: List snippets
+  type: http
+  seq: 2
+}
+
+get {
+  url: {{baseUrl}}/api/snippets/
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 200
+}

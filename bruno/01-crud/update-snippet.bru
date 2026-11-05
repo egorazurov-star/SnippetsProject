@@ -1,0 +1,25 @@
+meta {
+  name: Update snippet (PUT)
+  type: http
+  seq: 4
+}
+
+put {
+  url: {{baseUrl}}/api/snippets/{{snippetId}}/
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "title": "Hello updated",
+    "code": "print('hello updated')",
+    "linenos": false,
+    "language": "python",
+    "style": "friendly"
+  }
+}
+
+assert {
+  res.status: eq 200
+}
