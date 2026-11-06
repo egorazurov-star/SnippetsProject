@@ -1,0 +1,20 @@
+meta {
+  name: Delete snippet - other user (403)
+  type: http
+  seq: 7
+}
+
+delete {
+  url: {{baseUrl}}/api/snippets/{{snippetId}}/
+  body: none
+  auth: basic
+}
+
+auth:basic {
+  username: {{username2}}
+  password: {{password2}}
+}
+
+assert {
+  res.status: eq 403
+}

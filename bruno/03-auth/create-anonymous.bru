@@ -1,0 +1,22 @@
+meta {
+  name: Create snippet - anonymous (403)
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{baseUrl}}/api/snippets/
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+    "title": "Hello",
+    "code": "print('hello')"
+  }
+}
+
+assert {
+  res.status: eq 403
+}

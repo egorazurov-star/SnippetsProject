@@ -1,0 +1,30 @@
+meta {
+  name: Update snippet - other user (403)
+  type: http
+  seq: 5
+}
+
+put {
+  url: {{baseUrl}}/api/snippets/{{snippetId}}/
+  body: json
+  auth: basic
+}
+
+auth:basic {
+  username: {{username2}}
+  password: {{password2}}
+}
+
+body:json {
+  {
+    "title": "Hello updated",
+    "code": "print('hello updated')",
+    "linenos": false,
+    "language": "python",
+    "style": "friendly"
+  }
+}
+
+assert {
+  res.status: eq 403
+}

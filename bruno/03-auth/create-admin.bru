@@ -1,0 +1,34 @@
+meta {
+  name: Create snippet - as admin
+  type: http
+  seq: 3
+}
+
+post {
+  url: {{baseUrl}}/api/snippets/
+  body: json
+  auth: basic
+}
+
+auth:basic {
+  username: {{username}}
+  password: {{password}}
+}
+
+body:json {
+  {
+    "title": "Hello",
+    "code": "print('hello')"
+  }
+}
+
+assert {
+  res.status: eq 201
+  res.body.owner: eq admin
+}
+
+script:post-response {
+  if (res.status === 201) {
+    bru.setVar("snippetId", res.body.id);
+  }
+}
