@@ -1,0 +1,20 @@
+meta {
+  name: Delete snippet - as admin
+  type: http
+  seq: 5
+}
+
+delete {
+  url: {{baseUrl}}/api/snippets/{{snippetId}}/
+  body: none
+  auth: basic
+}
+
+auth:basic {
+  username: {{username}}
+  password: {{password}}
+}
+
+assert {
+  res.status: eq 204
+}

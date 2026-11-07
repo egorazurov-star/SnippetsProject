@@ -1,0 +1,15 @@
+meta {
+  name: Snippet highlight (HTML)
+  type: http
+  seq: 4
+}
+
+get {
+  url: {{baseUrl}}/api/snippets/{{snippetId}}/highlight/
+  body: none
+  auth: none
+}
+
+assert {
+  res.status: eq 200
+}

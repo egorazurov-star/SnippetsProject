@@ -1,0 +1,27 @@
+meta {
+  name: Partial update (PATCH)
+  type: http
+  seq: 2
+}
+
+patch {
+  url: {{baseUrl}}/api/snippets/{{snippetId}}/
+  body: json
+  auth: basic
+}
+
+auth:basic {
+  username: {{username}}
+  password: {{password}}
+}
+
+body:json {
+  {
+    "title": "Patched title"
+  }
+}
+
+assert {
+  res.status: eq 200
+  res.body.title: eq Patched title
+}
